@@ -27,8 +27,8 @@ yaourt -Syyuu
 
 # Install packages
 echo "Install packages..."
-#sudo pacman -S ${PACPKG} --noconfirm --force
-#yaourt -S ${YAOPKG} --noconfirm --force
+sudo pacman -S ${PACPKG} --noconfirm --force
+yaourt -S ${YAOPKG} --noconfirm --force
 
 # Install oh my zsh + chsh to zsh
 echo "Install oh my zsh..."
