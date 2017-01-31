@@ -10,6 +10,9 @@ PACPKG="terminator ${PACPKG}"
 # zsh
 PACPKG="zsh ${PACPKG}"
 
+# file manager
+PACPKG="nemo ${PACPKG}"
+
 # Replace dmenu
 PACPKG="rofi ${PACPKG}"
 
