@@ -1,8 +1,8 @@
 #!/bin/bash
 # 
 
-# i3wm
-PACPKG="i3-wm ${PACPKG}"
+# i3wm gaps
+YAOPKG="i3--gaps-git ${YAOPKG}"
 
 # terminal
 PACPKG="terminator ${PACPKG}"
@@ -33,3 +33,4 @@ yaourt -S ${YAOPKG} --noconfirm --force
 # Install oh my zsh + chsh to zsh
 echo "Install oh my zsh..."
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
