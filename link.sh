@@ -21,3 +21,8 @@ ln -vsf "${CUR_CONF_DIR}/htop/htoprc" "${USER_CONF_DIR}/htop/"
 # i3 config
 mkdir -p ${USER_CONF_DIR}/i3
 ln -vsf "${CUR_CONF_DIR}/i3/config" "${USER_CONF_DIR}/i3/"
+
+# terminator config
+mkdir -p ${USER_CONF_DIR}/terminator
+ln -vsf "${CUR_CONF_DIR}/terminator/config" "${USER_CONF_DIR}/terminator/"
+
