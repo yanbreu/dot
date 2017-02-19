@@ -22,7 +22,17 @@ ln -vsf "${CUR_CONF_DIR}/htop/htoprc" "${USER_CONF_DIR}/htop/"
 mkdir -p ${USER_CONF_DIR}/i3
 ln -vsf "${CUR_CONF_DIR}/i3/config" "${USER_CONF_DIR}/i3/"
 
+# i3blocks
+mkdir -p ${USER_CONF_DIR}/i3blocks
+ln -vsf "${CUR_CONF_DIR}/i3blocks/config" "${USER_CONF_DIR}/i3blocks/"
+
+# i3lock
+mkdir -p ${USER_CONF_DIR}/i3lock
+ln -vsf "${CUR_CONF_DIR}/i3lock/lock.sh" "${USER_CONF_DIR}/i3lock/"
+
 # terminator config
 mkdir -p ${USER_CONF_DIR}/terminator
 ln -vsf "${CUR_CONF_DIR}/terminator/config" "${USER_CONF_DIR}/terminator/"
 
+# compton config
+ln -vsf "${CUR_CONF_DIR}/compton.conf" "${USER_CONF_DIR}/"

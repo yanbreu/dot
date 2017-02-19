@@ -1,8 +1,10 @@
 #!/bin/bash
 # 
 
+AURHELPER="pacaur"
+
 # i3wm gaps
-YAOPKG="i3--gaps-git ${YAOPKG}"
+AURPKG="i3--gaps-git ${AURPKG}"
 
 # terminal
 PACPKG="terminator ${PACPKG}"
@@ -11,27 +13,33 @@ PACPKG="terminator ${PACPKG}"
 PACPKG="zsh ${PACPKG}"
 
 # file manager
-PACPKG="nemo ${PACPKG}"
+PACPKG="thunar ${PACPKG}"
 
 # Replace dmenu
 PACPKG="rofi ${PACPKG}"
 
 # Fonts
-PACPKG="ttf-google-fonts ${PACPKG}"
+AURPKG="ttf-google-fonts ${AURPKG}"
+AURPKG="ttf-font-awesome ${AURPKG}"
 PACPKG="powerline-fonts ${PACPKG}"
 
+
 # i3blocks
-YAOPKG="i3blocks ${YAOPKG}"
+AURPKG="i3blocks ${AURPKG}"
+
+# i3lock
+PACPKG="i3lock ${PACPKG}"
+PACPKG="imagemagick ${PACPKG}"
+PACPKG="scrot ${PACPKG}"
 
 # Update
 echo "Update mirrorlist"
-yaourt -Syyuu
-
+$AURHELPER -Syyuu
 
 # Install packages
 echo "Install packages..."
-sudo pacman -S ${PACPKG} --noconfirm --force
-yaourt -S ${YAOPKG} --noconfirm --force
+sudo pacman -Su ${PACPKG} --noconfirm --force
+$AURHELPER -Su ${AURPKG} --noconfirm --force
 
 # Install oh my zsh + chsh to zsh
 echo "Install oh my zsh..."
