@@ -7,35 +7,36 @@
 ##
 
 # General
-set $mod 	Mod4
-set $gaps	10
+set $mod 		Mod4
+set $alt		mod1
+set $gaps		0
 
 # Font
-set $font 	pango:Inconsolata
-set $fontSize 	12
+set $font 		pango:Noto Sans Regular
+set $fontSize 		11
 
 # Terminal
-set $terminal	terminator
-
+set $terminal		terminator
+set $filemanager	Thunar
 
 # workspace names
-set $workspace1		"1: Home"
-set $workspace2		"2: Terminal"
-set $workspace3		"3: Chrome"
-set $workspace4		"4: E-Mail"
-set $workspace5		"5"
-set $workspace6		"6"
-set $workspace7		"7"
-set $workspace8		"8"
-set $workspace9		"9: Code"
-set $workspace10	"0"
+set $workspace1 	"1: "
+set $workspace2 	"2: "
+set $workspace3 	"3: "
+set $workspace4 	"4: "
+set $workspace5 	"5: "
+set $workspace6 	"6: "
+set $workspace7 	"7: "
+set $workspace8 	"8: "
+set $workspace9 	"9: "
+set $workspace10	"0: "
 
 ###
 # Config
 ##
 
 # Set font
-font $font 12
+font $font $fontSize
 
 # Gaps
 gaps inner $gaps
@@ -43,20 +44,27 @@ gaps inner $gaps
 # Transparent when inactive
 exec_always compton --config ~/.config/compton.conf
 
+# Nitrogen
+exec_always nitrogen --restore
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec $terminal
+bindsym $mod+t exec $terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
+
+# lock screen
+bindsym $mod+l exec ~/.config/i3lock/lock.sh
 
 # start rofi (a program launcher)
 bindsym $mod+r exec rofi -show run
 
 # start nemo (file manager)
-bindsym $mod+e exec nemo --no-desktop
+bindsym $mod+e exec $filemanager
 
 # change focus
 bindsym $mod+Left focus left
@@ -102,6 +110,21 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
@@ -127,13 +150,17 @@ bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # program to workspace
-#	identifier		workspace
-assign	[instance="chromium"]	$workspace3
+#	identifier			workspace
+assign	[instance="chromium"]		$workspace3
+assign	[class="TeamSpeak 3"]		$workspace9
 
+# windows
+for_window [instance="chromium"] border none
 
 # program exec
-
+exec --no-startup-id nm-applet
 exec_always --no-startup-id i3-msg '$workspace2 exec /usr/bin/chromium'
+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -178,10 +205,10 @@ bar {
         status_command i3blocks
 	
 	colors {
-		#color class		border	back.	text
-		focused_workspace	#000000	#007090	#ffffff
-		active_workspace	#000000	#d8b100	#ffffff
-		inactive_workspace	#000000	#000000	#888888
-		urgent_workspace	#000000	#bf7c00	#ffffff
+		#color class		border	background	text
+		focused_workspace	#000000	#007090		#ffffff
+		active_workspace	#000000	#d8b100		#ffffff
+		inactive_workspace	#000000	#000000		#888888
+		urgent_workspace	#000000	#bf7c00		#ffffff
 	}
 }
