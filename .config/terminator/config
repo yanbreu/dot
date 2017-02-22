@@ -5,9 +5,10 @@
   inactive_color_offset = 0.9
   scroll_tabbar = True
   tab_position = hidden
-  title_font = Noto Sans 9
+  title_font = Noto Sans 10
   title_hide_sizetext = True
   title_use_system_font = False
+  window_state = hidden
 [keybindings]
 [layouts]
   [[default]]
