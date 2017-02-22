@@ -27,6 +27,9 @@ PACPKG="powerline-fonts ${PACPKG}"
 # i3blocks
 AURPKG="i3blocks ${AURPKG}"
 
+# polybar
+AURPKG="polybar ${AURPKG}"
+
 # i3lock
 PACPKG="i3lock ${PACPKG}"
 PACPKG="imagemagick ${PACPKG}"

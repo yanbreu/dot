@@ -26,6 +26,11 @@ ln -vsf "${CUR_CONF_DIR}/i3/config" "${USER_CONF_DIR}/i3/"
 mkdir -p ${USER_CONF_DIR}/i3blocks
 ln -vsf "${CUR_CONF_DIR}/i3blocks/config" "${USER_CONF_DIR}/i3blocks/"
 
+# polybar
+mkdir -p ${USER_CONF_DIR}/polybar
+ln -vsf "${CUR_CONF_DIR}/polybar/config" "${USER_CONF_DIR}/polybar/"
+
+
 # i3lock
 mkdir -p ${USER_CONF_DIR}/i3lock
 ln -vsf "${CUR_CONF_DIR}/i3lock/lock.sh" "${USER_CONF_DIR}/i3lock/"
