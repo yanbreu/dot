@@ -7,7 +7,7 @@ AURHELPER="pacaur"
 AURPKG="i3--gaps-git ${AURPKG}"
 
 # terminal
-PACPKG="terminator ${PACPKG}"
+PACPKG="xfce4-terminal ${PACPKG}"
 
 # zsh
 PACPKG="zsh ${PACPKG}"
