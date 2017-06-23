@@ -16,20 +16,21 @@ set $borderSize 	2
 set $font 		pango:Noto Sans Regular
 set $fontSize 		11
 
-# Terminal
+# Programms
 set $terminal		xfce4-terminal
-set $filemanager	Thunar
+set $filemanager 	Thunar
+set $browser	 	chromium
 
 # workspace names
-set $workspace1 	"1: "
-set $workspace2 	"2: "
-set $workspace3 	"3: "
-set $workspace4 	"4: "
-set $workspace5 	"5: "
-set $workspace6 	"6: "
-set $workspace7 	"7: "
-set $workspace8 	"8: "
-set $workspace9 	"9: "
+set $workspace1 	"1:"
+set $workspace2 	"2:"
+set $workspace3 	"3:"
+set $workspace4 	"4:"
+set $workspace5 	"5:"
+set $workspace6 	"6:"
+set $workspace7 	"7:"
+set $workspace8 	"8:"
+set $workspace9 	"9:"
 set $workspace10 	"10:"
 
 # SET COLOR ALIASES
@@ -37,7 +38,7 @@ set $bg.color		#1d1d1d
 set $fg.color		#d1d1d1
 set $bd.color		#565656
 set $alt.color		#585858
-set $alt.color2 	#ff4400
+set $alt.color2 	#75507B
 set $warn.color 	#c795ae
 
 ###
@@ -48,7 +49,7 @@ set $warn.color 	#c795ae
 font $font $fontSize
 
 # Gaps
-gaps inner $gaps
+#gaps inner $gaps
 
 # Transparent when inactive
 exec_always compton --config ~/.config/compton.conf
@@ -72,8 +73,11 @@ bindsym $mod+l exec ~/.config/i3lock/lock.sh
 # start rofi (a program launcher)
 bindsym $mod+r exec rofi -show drun
 
-# start nemo (file manager)
+# start file manager
 bindsym $mod+e exec $filemanager
+
+# start browser
+bindsym $mod+c exec $browser
 
 # change focus
 bindsym $mod+Left focus left
@@ -125,8 +129,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight + 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight - 10 # decrease screen brightness
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -177,7 +181,7 @@ new_window pixel
 
 # program exec
 exec --no-startup-id nm-applet
-exec_always --no-startup-id i3-msg '$workspace2 exec /usr/bin/chromium'
+#exec_always --no-startup-id i3-msg '$workspace2 exec chromium'
 
 
 # reload the configuration file
@@ -224,23 +228,24 @@ client.placeholder      #000000 	#0c0c0c		#ffffff	    #000000	#0c0c0c
 client.background       #ffffff
 
 bar {
-	status_command polybar top
+	#status_command polybar top
+	status_command i3blocks
 	tray_output primary
-	separator_symbol "//"
-	strip_workspace_numbers yes
+	#separator_symbol "//"
+	#strip_workspace_numbers yes
 
-	#position bottom
-	mode invisible
+	position top
+	#mode invisible
 
 	colors {
 		background		$bg.color
 		statusline		$fg.color
 		separator		$alt.color
 
-		# class		border		background	font
-		focused_workspace	$bg.color	$alt.color	$fg.color
+		# class			border		background	font
+		focused_workspace	$bg.color	$alt.color2	$fg.color
 		inactive_workspace	$bg.color	$bg.color	$fg.color
-		active_workspace	$bg.color	$alt.color	$fg.color
+		active_workspace	$bg.color	$alt.color2	$fg.color
 		urgent_workspace	$bg.color	$warn.color	#ffffff
 	}
 }
