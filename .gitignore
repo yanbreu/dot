@@ -1,0 +1,7 @@
+.config/chromium
+.config/dconf
+.config/pulse
+.config/menus
+.config/gtk-2.0
+.config/nitrogen
+.config/pavucontrol.ini
