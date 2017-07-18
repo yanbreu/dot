@@ -1,0 +1,8 @@
+// Platzieren Sie Ihre Einstellungen in dieser Datei, um die Standardeinstellungen zu überschreiben.
+{
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "git.autorefresh": false,
+    "git.autofetch": false,
+    "window.zoomLevel": 0
+}
